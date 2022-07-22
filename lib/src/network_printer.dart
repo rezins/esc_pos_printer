@@ -54,10 +54,8 @@ class NetworkPrinter {
 
   // ************************ Printer Commands ************************
   void reset() async{
-    if(Platform.isWindows) {
-      await Future.delayed(Duration(microseconds: 1000),(){});
-    }
     _socket.add(_generator.reset());
+    await Future.delayed(Duration(microseconds: 1000),(){});
   }
 
   void text(
@@ -67,99 +65,73 @@ class NetworkPrinter {
     bool containsChinese = false,
     int? maxCharsPerLine,
   }) async{
-    if(Platform.isWindows) {
-      await Future.delayed(Duration(microseconds: 1000),(){});
-    }
     _socket.add(_generator.text(text,
         styles: styles,
         linesAfter: linesAfter,
         containsChinese: containsChinese,
         maxCharsPerLine: maxCharsPerLine));
+    await Future.delayed(Duration(microseconds: 1000),(){});
   }
 
   void setGlobalCodeTable(String codeTable) async{
-    if(Platform.isWindows) {
-      await Future.delayed(Duration(microseconds: 1000),(){});
-    }
     _socket.add(_generator.setGlobalCodeTable(codeTable));
+    await Future.delayed(Duration(microseconds: 1000),(){});
   }
 
   void setGlobalFont(PosFontType font, {int? maxCharsPerLine}) async{
-    if(Platform.isWindows) {
-      await Future.delayed(Duration(microseconds: 1000),(){});
-    }
     _socket
         .add(_generator.setGlobalFont(font, maxCharsPerLine: maxCharsPerLine));
+    await Future.delayed(Duration(microseconds: 1000),(){});
   }
 
   void setStyles(PosStyles styles, {bool isKanji = false}) async{
-    if(Platform.isWindows) {
-      await Future.delayed(Duration(microseconds: 1000),(){});
-    }
     _socket.add(_generator.setStyles(styles, isKanji: isKanji));
+    await Future.delayed(Duration(microseconds: 1000),(){});
   }
 
   void rawBytes(List<int> cmd, {bool isKanji = false}) async{
-    if(Platform.isWindows) {
-      await Future.delayed(Duration(microseconds: 1000),(){});
-    }
     _socket.add(_generator.rawBytes(cmd, isKanji: isKanji));
+    await Future.delayed(Duration(microseconds: 1000),(){});
   }
 
   void emptyLines(int n) async{
-    if(Platform.isWindows) {
-      await Future.delayed(Duration(microseconds: 1000),(){});
-    }
     _socket.add(_generator.emptyLines(n));
+    await Future.delayed(Duration(microseconds: 1000),(){});
   }
 
   void feed(int n) async{
-    if(Platform.isWindows) {
-      await Future.delayed(Duration(microseconds: 1000),(){});
-    }
     _socket.add(_generator.feed(n));
+    await Future.delayed(Duration(microseconds: 1000),(){});
   }
 
   void cut({PosCutMode mode = PosCutMode.full}) async{
-    if(Platform.isWindows) {
-      await Future.delayed(Duration(microseconds: 1000),(){});
-    }
     _socket.add(_generator.cut(mode: mode));
+    await Future.delayed(Duration(microseconds: 1000),(){});
   }
 
   void printCodeTable({String? codeTable}) async{
-    if(Platform.isWindows) {
-      await Future.delayed(Duration(microseconds: 1000),(){});
-    }
     _socket.add(_generator.printCodeTable(codeTable: codeTable));
+    await Future.delayed(Duration(microseconds: 1000),(){});
   }
 
   void beep({int n = 3, PosBeepDuration duration = PosBeepDuration.beep450ms}) async{
-    if(Platform.isWindows) {
-      await Future.delayed(Duration(microseconds: 1000),(){});
-    }
     _socket.add(_generator.beep(n: n, duration: duration));
+    await Future.delayed(Duration(microseconds: 1000),(){});
   }
 
   void reverseFeed(int n) async{
-    if(Platform.isWindows) {
-      await Future.delayed(Duration(microseconds: 1000),(){});
-    }
     _socket.add(_generator.reverseFeed(n));
+    await Future.delayed(Duration(microseconds: 1000),(){});
   }
 
   void row(List<PosColumn> cols) async{
-    if(Platform.isWindows) {
-      await Future.delayed(Duration(microseconds: 1000),(){});
-    }
     _socket.add(_generator.row(cols));
+    await Future.delayed(Duration(microseconds: 1000),(){});
   }
 
   void image(Image imgSrc, {PosAlign align = PosAlign.center}) async{
-    if(Platform.isWindows) {
-      await Future.delayed(Duration(microseconds: 1000),(){});
-    }
     _socket.add(_generator.image(imgSrc, align: align));
+    await Future.delayed(Duration(microseconds: 1000),(){});
   }
 
   void imageRaster(
@@ -169,9 +141,6 @@ class NetworkPrinter {
     bool highDensityVertical = true,
     PosImageFn imageFn = PosImageFn.bitImageRaster,
   }) async{
-    if(Platform.isWindows) {
-      await Future.delayed(Duration(microseconds: 1000),(){});
-    }
     _socket.add(_generator.imageRaster(
       image,
       align: align,
@@ -179,6 +148,7 @@ class NetworkPrinter {
       highDensityVertical: highDensityVertical,
       imageFn: imageFn,
     ));
+    await Future.delayed(Duration(microseconds: 1000),(){});
   }
 
   void barcode(
@@ -189,9 +159,6 @@ class NetworkPrinter {
     BarcodeText textPos = BarcodeText.below,
     PosAlign align = PosAlign.center,
   }) async{
-    if(Platform.isWindows) {
-      await Future.delayed(Duration(microseconds: 1000),(){});
-    }
     _socket.add(_generator.barcode(
       barcode,
       width: width,
@@ -200,6 +167,7 @@ class NetworkPrinter {
       textPos: textPos,
       align: align,
     ));
+    await Future.delayed(Duration(microseconds: 1000),(){});
   }
 
   void qrcode(
@@ -208,24 +176,18 @@ class NetworkPrinter {
     QRSize size = QRSize.Size4,
     QRCorrection cor = QRCorrection.L,
   }) async{
-    if(Platform.isWindows) {
-      await Future.delayed(Duration(microseconds: 1000),(){});
-    }
     _socket.add(_generator.qrcode(text, align: align, size: size, cor: cor));
+    await Future.delayed(Duration(microseconds: 1000),(){});
   }
 
   void drawer({PosDrawer pin = PosDrawer.pin2}) async{
-    if(Platform.isWindows) {
-      await Future.delayed(Duration(microseconds: 1000),(){});
-    }
     _socket.add(_generator.drawer(pin: pin));
+    await Future.delayed(Duration(microseconds: 1000),(){});
   }
 
   void hr({String ch = '-', int? len, int linesAfter = 0}) async{
-    if(Platform.isWindows) {
-      await Future.delayed(Duration(microseconds: 1000),(){});
-    }
     _socket.add(_generator.hr(ch: ch, linesAfter: linesAfter));
+    await Future.delayed(Duration(microseconds: 1000),(){});
   }
 
   void textEncoded(
@@ -234,15 +196,13 @@ class NetworkPrinter {
     int linesAfter = 0,
     int? maxCharsPerLine,
   }) async{
-    if(Platform.isWindows) {
-      await Future.delayed(Duration(microseconds: 1000),(){});
-    }
     _socket.add(_generator.textEncoded(
       textBytes,
       styles: styles,
       linesAfter: linesAfter,
       maxCharsPerLine: maxCharsPerLine,
     ));
+    await Future.delayed(Duration(microseconds: 1000),(){});
   }
   // ************************ (end) Printer Commands ************************
 }
